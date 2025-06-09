@@ -1,0 +1,16 @@
+on init
+    mkdir /vendor/firmware
+    mkdir /vendor/firmware_mnt
+    symlink /vendor/firmware_mnt /firmware
+
+on fs
+    wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on boot
+    # Enable Power modes and set the CPU Freq Sampling rates
+    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/module/msm_thermal/core_control/enabled 1
