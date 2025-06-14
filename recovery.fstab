@@ -1,16 +1,25 @@
 # mount point   fstype  device                                          flags
+/aboot			emmc	/dev/block/bootdevice/by-name/aboot
 /boot           emmc    /dev/block/bootdevice/by-name/boot
 /cache          ext4    /dev/block/bootdevice/by-name/cache
 /data           ext4    /dev/block/bootdevice/by-name/userdata         flags=encryptable=footer
+/sdcard			ext4	/dev/block/bootdevice/by-name/sdcard		/dev/block/mmcblk0 flags=display="SDcard"
 /recovery       emmc    /dev/block/bootdevice/by-name/recovery         flags=backup=1
 /system         ext4    /dev/block/bootdevice/by-name/system
-/system_image   emmc    /dev/block/bootdevice/by-name/system
-/vendor         ext4    /dev/block/bootdevice/by-name/vendor          flags=wipeingui
-/vendor_image   emmc    /dev/block/bootdevice/by-name/vendor
+#/system_image   emmc    /dev/block/bootdevice/by-name/system
 /persist        ext4    /dev/block/bootdevice/by-name/persist         flags=display="Persist"
 /misc           emmc    /dev/block/bootdevice/by-name/misc
-/modem          vfat    /dev/block/bootdevice/by-name/modem          flags=display="Modem";backup=1
-/firmware       vfat    /dev/block/bootdevice/by-name/firmware       flags=display="Firmware";backup=1
+/modem          emmc    /dev/block/bootdevice/by-name/modem          flags=display="Modem";backup=1
+/sbl1			emmc	/dev/block/bootdevice/by-name/sbl1
+/rpm			emmc	/dev/block/bootdevice/by-name/rpm
+/tz             emmc    /dev/block/bootdevice/by-name/tz
+/modem_st1      emmc    /dev/block/bootdevice/by-name/modemst1
+/modem_st2      emmc    /dev/block/bootdevice/by-name/modemst2
+/static_nv_bk   emmc    /dev/block/bootdevice/by-name/oppostanvbk
+/oppodycnvbk    emmc    /dev/block/bootdevice/by-name/oppodycnvbk
+/logo			emmc    /dev/block/bootdevice/by-name/LOGO
+/reserve4		emmc    /dev/block/bootdevice/by-name/reserve4
+/driver			emmc	/dev/block/bootdevice/by-name/DRIVER
 
 # Removable storage
 /external_sd    vfat    /dev/block/mmcblk1p1    /dev/block/mmcblk1   flags=display="Micro SDcard";storage;wipeingui;removable
