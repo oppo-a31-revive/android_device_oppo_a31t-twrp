@@ -8,6 +8,8 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+$(call inherit-product, vendor/omni/config/common.mk)
+
 PRODUCT_COPY_FILES += \
 	device/oppo/a31t/prebuilt/kernel:kernel \
 	device/oppo/a31t/prebuilt/dt.img:dt.img
